@@ -18,12 +18,12 @@ const Select = styled.select`
     -webkit-appearance: none;
     border-radius: 10px;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
 `
 
 const useCriptomoneda = (label, stateInicial, opciones) => {
 
-    console.log(opciones);
+    // console.log(opciones);
 
     // State de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial);
@@ -35,12 +35,21 @@ const useCriptomoneda = (label, stateInicial, opciones) => {
                 onChange={ e => actualizarState(e.target.value)}
                 value={state}
             >
-                <option value="">- Seleccione -</option>
-                {/* <option value="BTN">Bitcoin</option> */}
-                
-                {opciones.map(opcion => (
+                <option value="">-- Selecciona tu Moneda --</option>
+                <option value="BTN">Bitcoin</option>
+                <option value="ETH">Ethereum</option>
+                <option value="XRP">XRP</option>
+                <option value="USDT">Tether</option>
+                <option value="LINK">Chainlink</option>
+                <option value="COCOS">COCOS BCX</option>
+                <option value="UNI">Uniswap Protocol Token</option>
+                <option value="DOT">Polkadot</option>
+                <option value="XLM">Stellar</option>
+                <option value="ADA">Cardano</option>
+
+                {/* {opciones.map(opcion => (
                     <option key={opcion.CoinInfo.Id} value={opcion.CoinInfo.Name}>{opcion.CoinInfo.FullName}</option>
-                ))}
+                ))} */}
             </Select>
         </Fragment>
     );
