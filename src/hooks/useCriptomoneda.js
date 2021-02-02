@@ -8,41 +8,44 @@ const Label = styled.label`
     font-weight: bold;
     font-size: 2.4rem;
     margin-top: 2rem;
-    display: block;    
+    display: block;
 `;
 
 const Select = styled.select`
     width: 100%;
-    display: block;
+    display:block;
     padding: 1rem;
     -webkit-appearance: none;
     border-radius: 10px;
     border: none;
-    font-size: 1rem;
-`;
+    font-size: 1.2rem;
+`
 
 const useCriptomoneda = (label, stateInicial, opciones) => {
 
-    //State de nuestro custom Hook
-    const [ state, actualizarState ] = useState(stateInicial);
+    // console.log(opciones);
+
+    // State de nuestro custom hook
+    const [state, actualizarState] = useState(stateInicial);
 
     const SelectCripto = () => (
         <Fragment>
             <Label>{label}</Label>
             <Select
-                onChange={ e => actualizarState(e.target.value) }
+                onChange={ e => actualizarState(e.target.value)}
                 value={state}
             >
-                <option value="">-- Selecciona tu Moneda --</option>
+                <option value="">- Seleccione -</option>
+                
                 {/* {opciones.map(opcion => (
-                    <option key={opcion.codigo} value={opcion.codigo}>{opcion.nombre}</option>
+                    <option key={opcion.CoinInfo.Id} value={opcion.CoinInfo.Name}>{opcion.CoinInfo.FullName}</option>
                 ))} */}
             </Select>
         </Fragment>
     );
 
-    //Retonar state, interfaz y funcion que modifica el state
-    return[state, SelectCripto, actualizarState];
-};
+    // Retornar state, interfaz y fn que modifica el state
+    return [state, SelectCripto, actualizarState];
+}
 
 export default useCriptomoneda;
