@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from '@emotion/styled';
 
 const Label = styled.label`
@@ -38,9 +38,9 @@ const useCriptomoneda = (label, stateInicial, opciones) => {
                 <option value="">- Seleccione -</option>
                 <option value="BTN">Bitcoin</option>
                 
-                {/* {opciones.map(opcion => (
+                {opciones.map(opcion => (
                     <option key={opcion.CoinInfo.Id} value={opcion.CoinInfo.Name}>{opcion.CoinInfo.FullName}</option>
-                ))} */}
+                ))}
             </Select>
         </Fragment>
     );
